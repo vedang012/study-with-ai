@@ -28,4 +28,13 @@ public class AiController {
                 .body(response);
     }
 
+    @GetMapping("/summarise")
+    public ResponseEntity<?> summarise(String notes) {
+        String response = aiService.summarise(notes);
+        return ResponseEntity.ok()
+                .header("Content-Type", "application/json")
+                .body(response);
+    }
+
+
 }

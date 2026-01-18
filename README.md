@@ -6,4 +6,5 @@ So this tool focuses on giving students visual answers like diagrams, flowcharts
 
 # Work by far 
 - Generate Flashcards from notes in one click using AI.
-- Generate MCQ Quiz from notes in one click using AI.
+- Generate MCQ Quiz from notes
+- Generate Summary of notes 

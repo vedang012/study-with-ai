@@ -45,5 +45,17 @@ public class AiService {
 
     }
 
+    public String summarise(String notes) {
+        String summaryPrompt =
+                "Summarise the given notes in short"
+              + "Return only a valid JSON array, no markdown, no explanation, no extra text."
+              + "The json array will contain only one field called \"summary\""
+              + "Create the summary strictly based on the provided notes. \n\n"
+              + "Notes: \n"
+              + notes;
+
+        return getAiResponseAsJson(summaryPrompt);
+    }
+
 
 }
