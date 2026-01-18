@@ -4,4 +4,5 @@ Study with AI helps students prepare for school and college exams using LLMs, bu
 Normal LLMs usually reply with long paragraphs, which are hard to read, especially now when attention span is going downhill.
 So this tool focuses on giving students visual answers like diagrams, flowcharts, tables, short summaries, and small quizzes, making studying easier, faster, and way more engaging.
 
-
+# Work by far 
+- Generate Flashcards from notes in one click using AI.
