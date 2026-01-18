@@ -42,6 +42,8 @@ public class AiService {
                 + notes;
 
         return getAiResponseAsJson(quizPrompt);
+
     }
+
 
 }
