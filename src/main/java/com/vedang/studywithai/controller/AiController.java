@@ -1,21 +1,23 @@
 package com.vedang.studywithai.controller;
 
-import com.google.genai.Client;
-import com.google.genai.types.GenerateContentResponse;
+import com.vedang.studywithai.service.AiService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@RestController("/api/ai/")
 public class AiController {
 
-    Client client = new Client();
+    @Autowired
+    AiService aiService;
 
-    @GetMapping("/ai")
-    public ResponseEntity<?> response(@RequestParam String prompt) throws InterruptedException {
-        GenerateContentResponse generatedContentResponse = client.models.generateContent("gemini-2.5-flash", prompt, null);
-        return ResponseEntity.ok(generatedContentResponse.text());
+    @GetMapping("/flashcards")
+    public ResponseEntity<?> generateFlashcards(String notes) {
+        String response = aiService.createFlashcards(notes);
+        return ResponseEntity.ok()
+                .header("Content-Type", "application/json")
+                .body(response);
     }
 
 }
