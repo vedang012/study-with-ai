@@ -57,5 +57,17 @@ public class AiService {
         return getAiResponseAsJson(summaryPrompt);
     }
 
+    public String createTheoryAnswer(String question, int marks) {
+        String theoryAnsPrompt =
+                "Create a suitable answer for the following question which is asked for" + marks
+                        + " marks"
+                        + "Return only a valid JSON array, no markdown, no explanation, no extra text."
+                        + "The json array will contain only one field called \"answer\""
+                        + "Question: \n"
+                        + question;
+
+        return getAiResponseAsJson(theoryAnsPrompt);
+    }
+
 
 }
