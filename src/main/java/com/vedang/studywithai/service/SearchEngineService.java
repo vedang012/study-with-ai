@@ -34,7 +34,7 @@ public class SearchEngineService {
             System.out.println(body);
         } catch (IOException e) {
             throw new RuntimeException(e);
-        }
+        } 
 
     }
 }

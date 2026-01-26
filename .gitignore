@@ -35,3 +35,5 @@ build/
 # application.properties
 
 /src/main/resources/application.properties
+
+/frontend/study-with-ai/node_modules
