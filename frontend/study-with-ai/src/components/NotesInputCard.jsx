@@ -1,6 +1,12 @@
 import ActionButtonsGrid from './ActionButtonsGrid.jsx'
 
-export default function NotesInputCard({ value, onChange, onAction }) {
+export default function NotesInputCard({
+  value,
+  onChange,
+  onAction,
+  disabledActions,
+  loadingKey,
+}) {
   const characterCount = value?.length ?? 0
 
   return (
@@ -20,7 +26,7 @@ export default function NotesInputCard({ value, onChange, onAction }) {
               value={value}
               onChange={(e) => onChange?.(e.target.value)}
               placeholder="Paste your class notes, textbook content, or study material here..."
-              className="min-h-[260px] w-full resize-y rounded-xl border border-zinc-800 bg-zinc-950/40 p-4 text-sm leading-relaxed text-zinc-100 shadow-inner shadow-black/20 placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-indigo-400/50"
+              className="min-h-64 w-full resize-y rounded-xl border border-zinc-800 bg-zinc-950/40 p-4 text-sm leading-relaxed text-zinc-100 shadow-inner shadow-black/20 placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-indigo-400/50"
             />
           </div>
 
@@ -43,7 +49,11 @@ export default function NotesInputCard({ value, onChange, onAction }) {
           </p>
 
           <div className="mt-4">
-            <ActionButtonsGrid onAction={onAction} />
+            <ActionButtonsGrid
+              onAction={onAction}
+              disabled={disabledActions}
+              loadingKey={loadingKey}
+            />
           </div>
         </div>
       </div>

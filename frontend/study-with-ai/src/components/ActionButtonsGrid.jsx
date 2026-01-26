@@ -25,15 +25,18 @@ const ACTIONS = [
   },
 ]
 
-export default function ActionButtonsGrid({ onAction }) {
+export default function ActionButtonsGrid({ onAction, disabled, loadingKey }) {
   return (
     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
       {ACTIONS.map(({ key, title, description, Icon }) => (
+        
         <button
           key={key}
           type="button"
           onClick={() => onAction?.(key)}
-          className="group relative flex w-full items-start gap-3 rounded-xl border border-zinc-800 bg-zinc-950/30 p-4 text-left shadow-sm shadow-black/20 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/60 focus-visible:ring-offset-0 hover:border-zinc-700 hover:bg-zinc-950/50"
+          disabled={Boolean(disabled) || loadingKey === key}
+          aria-busy={loadingKey === key ? 'true' : 'false'}
+          className="group relative flex w-full items-start gap-3 rounded-xl border border-zinc-800 bg-zinc-950/30 p-4 text-left shadow-sm shadow-black/20 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400/60 focus-visible:ring-offset-0 enabled:hover:border-zinc-700 enabled:hover:bg-zinc-950/50 disabled:cursor-not-allowed disabled:opacity-60"
         >
           <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900/60 text-zinc-200 transition group-hover:border-indigo-400/40 group-hover:text-zinc-50">
             <Icon className="h-5 w-5" />
@@ -46,6 +49,10 @@ export default function ActionButtonsGrid({ onAction }) {
             <span className="mt-1 block text-xs leading-relaxed text-zinc-400">
               {description}
             </span>
+          </span>
+
+          <span className="ml-auto mt-0.5 text-[11px] text-zinc-500">
+            {loadingKey === key ? 'Sending…' : ''}
           </span>
 
           <span className="pointer-events-none absolute inset-0 rounded-xl opacity-0 ring-1 ring-indigo-400/20 transition group-hover:opacity-100" />
