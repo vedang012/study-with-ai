@@ -9,3 +9,14 @@ So this tool focuses on giving students visual answers like diagrams, flowcharts
 - Generate MCQ Quiz from notes
 - Generate Summary of notes
 - Frontend
+
+### Flashcards
+![Screenshot 1](screenshots/1.png)
+
+### Quiz
+![Screenshot 2](screenshots/2.png)
+
+### Summary
+![Screenshot 3](screenshots/3.png)
+
+
